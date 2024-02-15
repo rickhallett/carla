@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toggle Image and Text</title>
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fafafa;
+        font-family: monospace;
+      }
+
+      .container {
+        width: 500px;
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url("heart.jpg");
+        background-size: cover;
+        background-position: center;
+        transition: background-image 0.5s ease-in-out;
+      }
+
+      .text {
+        display: none;
+        font-size: 20px;
+        color: black;
+        text-align: center;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container" class="container" onclick="toggleContent()">
+      <div id="text" class="text">
+        With you, I learn to paint with the sky. Love, KR x
+      </div>
+    </div>
+
+    <script>
+      function toggleContent() {
+        var container = document.getElementById("container");
+        var text = document.getElementById("text");
+        if (text.style.display === "none") {
+          text.style.display = "flex";
+          container.style.backgroundImage = "none";
+        } else {
+          text.style.display = "none";
+          container.style.backgroundImage = "url('heart.jpg')";
+        }
+      }
+
+      window.onload = () => toggleContent();
+    </script>
+  </body>
+</html>
